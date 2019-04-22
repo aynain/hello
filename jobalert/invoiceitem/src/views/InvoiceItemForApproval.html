@@ -1,0 +1,29 @@
+<template>
+  <div class="container" >
+
+    <table class="table table-bordered m-3" id="itemtable">
+      <thead>
+      <tr>
+        <th>Invoice ID</th>
+        <th>Item</th>
+        <th>Description</th>
+        <th>Qty</th>
+        <th>Unit Price</th>
+        <th>Account</th>
+        <th>Amount</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr  repeat.for="values of item">
+        <th>${values.invoice_id}</th>
+        <th>${values.item}</th>
+        <th>${values.description}</th>
+        <th>${values.qty}</th>
+        <th>${values.unit_price}</th>
+        <th>${values.account}</th>
+        <th>${values.amount}</th>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</template>

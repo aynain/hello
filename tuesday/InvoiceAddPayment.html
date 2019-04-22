@@ -1,0 +1,38 @@
+
+<template>
+  <form submit.delegate="saveTheAmountPaid()" class="mx-auto border shadow m-4 p-4 w-25">
+    <h1>Make Payment</h1>
+    <label for="amount_paid">Amount Paid:</label>
+    <div class="form-group" validation-errors.bind="amount_Paid">
+      <input id="amount_paid" value.bind="amountPaid & validate" class="form-control w-75"
+             required enabled>
+      <ul if.bind="controller.errors.length > 0" class="text-danger" id="error1">
+        <li repeat.for="errors of amount_Paid">${errors.error.message}</li>
+      </ul>
+    </div>
+    <label for="date_paid">Date Paid:</label>
+    <div class="form-group" validation-errors.bind="date_Paid">
+      <input type="date" id="date_paid" value.bind="datePaid & validate" class="form-control w-75"
+             required enabled>
+      <ul if.bind="controller.errors.length > 0" class="text-danger" id="error2">
+        <li repeat.for="errors of date_Paid">${errors.error.message}</li>
+      </ul>
+    </div>
+    <label for="paid_from">Paid From:</label>
+    <div class="form-group" validation-errors.bind="paid_From">
+      <input id="paid_from" value.bind="paidFrom & validate" class="form-control w-75" required enabled>
+      <ul if.bind="controller.errors.length > 0" class="text-danger" id="error3">
+        <li repeat.for="errors of paid_From">${errors.error.message}</li>
+      </ul>
+    </div>
+    </div>
+    <label for="paid_by">Paid By:</label>
+    <div class="form-group" validation-errors.bind="paid_By">
+      <input id="paid_by" value.bind="paidBy & validate" class="form-control w-75" required enabled>
+      <ul if.bind="controller.errors.length > 0" class="text-danger" id="error4">
+        <li repeat.for="errors of paid_By">${errors.error.message}</li>
+      </ul>
+    </div>
+    <button type="submit" id="paid" class="btn btn-primary">Paid</button>
+  </form>
+</template>

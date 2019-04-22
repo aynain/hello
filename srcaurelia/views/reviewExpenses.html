@@ -1,0 +1,124 @@
+<!--<link rel="stylesheet" href="../CSS/reviewExpanses.css">-->
+<template>
+  <require from="../CSS/reviewExpenses.css"></require>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <h2>Review Expense</h2>
+      </div>
+
+      <!--<div class="text-right">-->
+      <!--<button type="button" id="approve" class="btn btn-success " type="submit" style="margin:2px;" >Approve</button>-->
+      <!--<button type="button" id="decline" class="btn btn-danger " type="submit" style="margin:2px;" click.delegate="validation()">Decline</button>-->
+      <!--</div>-->
+
+    </div>
+  </nav>
+
+    <div class="logo-wrapper">
+      <img src="C:\xampp\htdocs\money-game-ui\abc.jpg" id="img" class="logo">
+    </div>
+    <!--<div class="container">-->
+      <!--<div class="clearfix">-->
+
+      <!--<div class="row" id="row">-->
+        <!--<div class="col-md-1">Price</div>-->
+        <!--<div class="col-md-1">Description</div>-->
+        <!--<div class="col-md-1">Spent_at</div>-->
+        <!--<div class="col-md-1">Spent_on</div>-->
+        <!--<div class="col-md-1">Account</div>-->
+        <!--<div class="col-md-1">SubTotal</div>-->
+        <!--<div class="col-md-1">Tax</div>-->
+        <!--<div class="col-md-1">Total</div>-->
+        <!--<div class="col-md-1"></div>-->
+        <!--<div class="col-md-1">Sumitted_to</div>-->
+      <!--</div>-->
+      <!--<div class="row" repeat.for="values of expensedata">-->
+      <!--<div class="col-md-1">${values.price}</div>-->
+      <!--<div class="col-md-1">${values.description}</div>-->
+      <!--<div class="col-md-1">${values.spent_at}</div>-->
+      <!--<div class="col-md-1">${values.spent_on}</div>-->
+      <!--<div class="col-md-1">${values.account}</div>-->
+      <!--<div class="col-md-1">${values.subtotal}</div>-->
+      <!--<div class="col-md-1">${values.tax}</div>-->
+      <!--<div class="col-md-1">${values.total}</div>-->
+      <!--<div class="col-md-1">-->
+            <!--<button type="button" id="approve" class="btn btn-success " type="submit" style="margin:2px; padding: 0; height: auto;" click.delegate="approvedbtn(values.id)">Approve</button>-->
+            <!--<button type="button" id="decline" class="btn btn-danger " type="submit" style="margin:2px; padding: 0; height: auto;" click.delegate="validation(values.id)">Decline</button>-->
+       <!--</div>-->
+        <!--<div class="col-md-1"><input type="text" name="submit" style="line-height: normal;" size="8" required></div>-->
+      <!--</div>-->
+    <!--</div>-->
+
+
+      <div class="container text-center">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">Price</th>
+            <th scope="col">Description</th>
+            <th scope="col">Spent_at</th>
+            <th scope="col">Spent_on</th>
+            <th scope="col">Account</th>
+            <th scope="col">SubTotal</th>
+            <th scope="col">Tax</th>
+            <th scope="col">Total</th>
+            <th scope="col">Action</th>
+            <th scope="col">Sumitted_to</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr repeat.for="values of expensedata">
+            <td>${values.price}</td>
+            <td>${values.description}</td>
+            <td>${values.spent_at}</td>
+            <td>${values.spent_on}</td>
+            <td>${values.account}</td>
+            <td>${values.subtotal}</td>
+            <td>${values.tax}</td>
+            <td>${values.total}</td>
+            <td>
+              <button type="button" id="approve" class="btn btn-success " type="submit" style="margin:2px; padding: 0; height: auto;" click.delegate="approvedbtn(values.id)">Approve</button>
+              <button type="button" id="decline" class="btn btn-danger " type="submit" style="margin:2px; padding: 0; height: auto;" click.delegate="validation(values.id)">Decline</button>
+            </td>
+            <td>
+              <input type="text" name="submit" style="line-height: normal;" size="8" required>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+  </div>
+  <div class="container">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <form>
+          <div class="modal-header">
+
+            <h5 id="title" class="modal-title">Request declined</h5>
+          </div>
+          <div class="modal-body" validation-errors.bind="texterror">
+            <textarea id="text" rows="4" class="form-control" placeholder="say something.." value.bind="text & validate" required></textarea>
+            <ul if.bind="controller.errors.length > 0" class="text-danger" id="error1">
+              <li repeat.for="errors of texterror">${errors.error.message}</li>
+            </ul>
+
+          </div>
+            <div class="modal-footer">
+              <button type="submit" id="btn-closed" class="btn btn-default" data-dismiss="modal" click.delegate="decline(values.id)">Submit</button>
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</template>

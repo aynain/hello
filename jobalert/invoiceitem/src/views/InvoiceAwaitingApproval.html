@@ -1,0 +1,47 @@
+<template>
+
+  <!--<div class="container">-->
+    <!--<h4 class="">Invoices</h4>-->
+    <!--<div class="row eight-cols">-->
+      <!--&lt;!&ndash;<div class="col-md-1">InvoiceNo.</div>&ndash;&gt;-->
+      <!--<div class="col-md-2"></div>-->
+      <!--<div class="col-md-2">To</div>-->
+      <!--<div class="col-md-2">Reference</div>-->
+      <!--<div class="col-md-2">InvoiceDate</div>-->
+      <!--<div class="col-md-2">DueDate</div>-->
+      <!--<div class="col-md-2">Due</div>-->
+    <!--</div>-->
+    <!--<div class="row eight-cols" repeat.for="values of invoicedata" click.delegate="invoiceitem()">-->
+        <!--&lt;!&ndash;<div class="col-md-2">${values.invoice_id}</div>&ndash;&gt;-->
+        <!--<div class="col-md-2"><input type="checkbox" name="checkbox"></div>-->
+        <!--<div class="col-md-2">${values.to}</div>-->
+        <!--<div class="col-md-2">${values.reference}</div>-->
+        <!--<div class="col-md-2">${values.invoice_date}</div>-->
+        <!--<div class="col-md-2">${values.due_date}</div>-->
+        <!--<div class="col-md-2">${values.due}</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <div class="container text-center">
+    <h3 class="m-4">Invoice</h3>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">To</th>
+        <th scope="col">Reference</th>
+        <th scope="col">InvoiceDate</th>
+        <th scope="col">DueDate</th>
+        <th scope="col">Due</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr repeat.for="values of invoicedata" click.delegate="invoiceitem(values.id)">
+        <td>${values.to}</td>
+        <td>${values.reference}</td>
+        <td>${values.invoice_date}</td>
+        <td>${values.due_date}</td>
+        <td>${values.due}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
